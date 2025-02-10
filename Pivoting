@@ -1,0 +1,65 @@
+for i in {1..255}; do (ping -c 1 192.168.1.${i} | grep “bytes from” &); done
+
+for i in {1..65535}; do (echo > /dev/tcp/192.168.1.1/$i) >/dev/null 2>&1 && echo $i is open; done
+
+-------------------------------------------------------------------------------------------------------
+
+proxychains nc [target-ip]
+
+ /etc/proxychains.conf or /etc/proxychains/proxychains.conf.
+
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ProxyChains: This tool will allow us to connect with the target via proxy network. But proxychains often slow down the connection due to which scanning and working becomes difficult.
+
+It’s a command line tool and we can use it using the following command
+
+proxychains nc [target-ip]
+
+Here we do not specify the port as proxychains reads it from its config file which is available in /etc/proxychains.conf or /etc/proxychains/proxychains.conf.
+
+Here all we need to do is just set the type of proxy SOCKS4 or SOCKS 5 and specify the port to use. Also, you can check and read about the proxy DNS.
+
+Note: You can use only TCP Scan and the scan will be extremely slow.
+
+FoxyProxy: ProxyChains is good when you are working on CLI, but if you are working in a web browser then we have an extension called foxyproxy which is similar and easier to use.
